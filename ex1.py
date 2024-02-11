@@ -1,6 +1,6 @@
 def caching_fibonacci(n):
     cache = {}
-    def fibonacci(n): # Function that calculates or returns fibonacci numbers
+    def fibonacci(n): # Function that calculates and returns fibonacci numbers
         if n <= 0:
             return 0
         if n == 1:
