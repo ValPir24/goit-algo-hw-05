@@ -20,15 +20,20 @@ def parse_input(user_input): # Parse input function
 
 @input_error
 def add_contact(args, contacts): # Add user and phone to dict function
-    name, phone = args
-    contacts[name] = phone
-    return "Contact added."
+    if args[0] not in contacts.keys():
+        name, phone = args
+        contacts[name] = phone
+        return "Contact added."
+    else:
+        print("The contact is already in the list.")
 
 @input_error
 def change_contact(args, contacts): # Change user phone function
-    name, phone = args
-    contacts[name] = phone
-    return f"The phone for {name} is succesfully changed to {contacts[name]}"
+    if args[0] in contacts.keys():
+        add_contact(args, contacts)
+        print(f"The phone for {args[0]} is succesfully changed to {contacts[args[0]]}")
+    else:
+        raise(KeyError)
 
 @input_error
 def show_phone(args, contacts): # Show phone of certain name function
